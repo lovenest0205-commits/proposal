@@ -1,0 +1,135 @@
+:root {
+  --wine: #6b1d3a;
+  --deep: #c2476b;
+  --soft: #a24663;
+  --petal: #d98ba0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { height: 100%; }
+
+body {
+  min-height: 100%;
+  min-height: 100dvh;
+  display: flex;
+  text-align: center;
+  overflow-x: hidden;
+  font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
+  color: var(--wine);
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 65%),
+    linear-gradient(160deg, #fdeef1 0%, #f9d6de 55%, #f2bfcc 100%);
+  background-attachment: fixed;
+  position: relative;
+}
+
+body::after {
+  content: "LoveNest";
+  position: fixed;
+  right: 18px;
+  bottom: 16px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(107, 29, 58, 0.18);
+  pointer-events: none;
+  user-select: none;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.content {
+  width: 100%;
+  max-width: 480px;
+  padding: 24px;
+  margin: auto;
+}
+.content.fade { animation: fade 0.5s ease; }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+#pic {
+  display: block;
+  width: 260px;
+  max-width: 72%;
+  height: auto;
+  margin: 0 auto 28px;
+  border-radius: 22px;
+  box-shadow: 0 14px 34px rgba(194, 71, 107, 0.22);
+}
+
+h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.9rem, 7.5vw, 2.5rem);
+  line-height: 1.25;
+  color: var(--wine);
+  margin-bottom: 14px;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  color: var(--petal);
+}
+.ornament::before,
+.ornament::after {
+  content: "";
+  width: 38px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+p {
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--soft);
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 40px;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+button:active { transform: scale(0.96); }
+button:focus-visible { outline: 3px solid rgba(207, 70, 112, 0.35); outline-offset: 3px; }
+
+#yesBtn {
+  color: #fff;
+  background: linear-gradient(135deg, #ea7a97, #cf4670);
+  box-shadow: 0 10px 22px rgba(207, 70, 112, 0.30);
+}
+#yesBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(207, 70, 112, 0.36);
+}
+
+#noBtn {
+  color: var(--deep);
+  background: #fff;
+  box-shadow: 0 10px 22px rgba(194, 71, 107, 0.14);
+}
+#noBtn.floating {
+  position: fixed;
+  margin: 0;
+  z-index: 10;
+  transition: left 0.35s ease, top 0.35s ease, transform 0.15s ease;
+}
