@@ -23,18 +23,60 @@ body {
   position: relative;
 }
 
-body::after {
-  content: "LoveNest";
+.site-footer {
   position: fixed;
   right: 18px;
-  bottom: 16px;
+  bottom: 14px;
+  z-index: 20;
+  max-width: calc(100vw - 36px);
+  text-align: right;
+}
+
+.watermark {
+  display: inline-block;
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: rgba(107, 29, 58, 0.18);
-  pointer-events: none;
-  user-select: none;
   font-family: 'Playfair Display', Georgia, serif;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.watermark:hover,
+.watermark:focus-visible {
+  color: rgba(107, 29, 58, 0.65);
+}
+.watermark:focus-visible,
+.personalised-link a:focus-visible {
+  outline: 2px solid var(--wine);
+  outline-offset: 3px;
+}
+
+.personalised-link {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(107, 29, 58, 0.62);
+  overflow-wrap: anywhere;
+}
+.personalised-link a {
+  color: var(--wine);
+  font-weight: 600;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    right: 12px;
+    bottom: 10px;
+    max-width: calc(100vw - 24px);
+  }
+  .watermark {
+    font-size: 24px;
+  }
+  .personalised-link {
+    font-size: 11px;
+  }
 }
 
 .content {
